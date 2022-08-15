@@ -7,11 +7,6 @@ namespace SpaceShooter.Scene.MainMenu.LeaderBoard
 {
     public class LeaderBoardView : ObjectView<ILeaderBoardModel>
     {
-        public void Init(UnityAction action)
-        {
-            
-        }
-
         protected override void InitRenderModel(ILeaderBoardModel model)
         {
             transform.GetChild(0).GetComponent<Text>().text = model.Data;
@@ -19,7 +14,7 @@ namespace SpaceShooter.Scene.MainMenu.LeaderBoard
 
         protected override void UpdateRenderModel(ILeaderBoardModel model)
         {
-            
+            transform.GetChild(0).GetComponent<Text>().text = model.Data;
         }
     }
 }
