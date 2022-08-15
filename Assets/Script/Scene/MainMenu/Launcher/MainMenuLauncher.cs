@@ -11,7 +11,7 @@ namespace SpaceShooter.Scene.MainMenu
     {
         public override string SceneName { get { return "MainMenu"; } }
 
-        //private LeaderBoardController _leaderBoard;
+        private LeaderBoardController _leaderBoard;
 
         protected override IController[] GetSceneDependencies()
         {
@@ -32,18 +32,14 @@ namespace SpaceShooter.Scene.MainMenu
 
         protected override IEnumerator InitSceneObject()
         {
-            Debug.Log(_view.name);
-            //_view.Init(ClickPlay);
-            //_leaderBoard.SetView(_view.LeaderBoard);
-            /*_view.Init(SceneName, BackToHome, Restart);
-            _gold.SetView(_view.Gold);
-            _tavern.SetView(_view.Tavern);*/
+            _leaderBoard.SetView(_view.LeaderBoard);
+            _view.SetCallbacsk(OnClickPlay);
             yield return null;
         }
 
-        private void ClickPlay()
+        private void OnClickPlay()
         {
-            SceneLoader.Instance.LoadScene("GamePlay");
+            SceneLoader.Instance.LoadScene("Gameplay");
         }
 
         /*private void Restart()

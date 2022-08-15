@@ -15,11 +15,11 @@ namespace SpaceShooter.Scene.MainMenu
         [SerializeField]
         private LeaderBoardView _leaderBoard;
 
-        public void Init(UnityAction onPlay)
+        public void SetCallbacsk(UnityAction OnClickPlay)
         {
             _play.onClick.RemoveAllListeners();
-            _play.onClick.AddListener(onPlay);
+            _play.onClick.AddListener(OnClickPlay);
         }
-       
+
     }
 }

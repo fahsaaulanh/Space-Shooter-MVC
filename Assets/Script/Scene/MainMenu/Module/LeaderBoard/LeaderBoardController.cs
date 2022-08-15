@@ -7,8 +7,10 @@ namespace SpaceShooter.Scene.MainMenu.LeaderBoard
     {
         public LeaderBoardController()
         {
-            SetView(_view);
-            _model.SetDara("Data Leader Board");
+            string[] array = new string[] { "array1", "array2", "array3" };
+            _model.SetData(array);
         }
+
+    
     }
 }

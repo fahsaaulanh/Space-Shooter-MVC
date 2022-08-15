@@ -20,8 +20,16 @@ namespace SpaceShooter.Boot
 
         protected override IEnumerator StartInit()
         {
-            Application.targetFrameRate = 60;
+            CreateEventSystem();
             yield return null;
+        }
+
+        private void CreateEventSystem()
+        {
+            GameObject obj = new GameObject("Event System");
+            obj.AddComponent<EventSystem>();
+            obj.AddComponent<StandaloneInputModule>();
+            GameObject.DontDestroyOnLoad(obj);
         }
     }
 }

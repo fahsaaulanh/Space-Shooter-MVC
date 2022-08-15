@@ -7,19 +7,22 @@ namespace SpaceShooter.Scene.MainMenu.LeaderBoard
 {
     public class LeaderBoardView : ObjectView<ILeaderBoardModel>
     {
-        public void Init(UnityAction action)
-        {
-            
-        }
-
+        [SerializeField] private Text _testLeaderboard;
+  
         protected override void InitRenderModel(ILeaderBoardModel model)
         {
-            transform.GetChild(0).GetComponent<Text>().text = model.Data;
+            _testLeaderboard.text = " ";
+            foreach (string data in model.Data)
+            {
+                _testLeaderboard.text += "\n" + data;
+                
+            }
         }
 
         protected override void UpdateRenderModel(ILeaderBoardModel model)
         {
-            
+          
+         
         }
     }
 }
