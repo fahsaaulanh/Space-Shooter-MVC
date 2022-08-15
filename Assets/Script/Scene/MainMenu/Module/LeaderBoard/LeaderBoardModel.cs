@@ -1,5 +1,6 @@
 ﻿using Agate.MVC.Base;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace SpaceShooter.Scene.MainMenu.LeaderBoard
 {
@@ -12,9 +13,10 @@ namespace SpaceShooter.Scene.MainMenu.LeaderBoard
     {
         public string Data { get; private set; }
 
-        public void SetDara(string s)
+        public void SetData(string s)
         {
             Data = s;
+            SetDataAsDirty();
         }
     }
 }

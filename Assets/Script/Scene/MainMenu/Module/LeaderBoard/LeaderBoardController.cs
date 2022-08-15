@@ -1,5 +1,6 @@
 ﻿using Agate.MVC.Base;
 using System;
+using UnityEngine;
 
 namespace SpaceShooter.Scene.MainMenu.LeaderBoard
 {
@@ -7,8 +8,7 @@ namespace SpaceShooter.Scene.MainMenu.LeaderBoard
     {
         public LeaderBoardController()
         {
-            SetView(_view);
-            _model.SetDara("Data Leader Board");
+            _model.SetData("Data Leader Board");
         }
     }
 }

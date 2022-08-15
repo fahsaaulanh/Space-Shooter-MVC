@@ -4,6 +4,7 @@ using SpaceShooter.Boot;
 using SpaceShooter.Scene.MainMenu.LeaderBoard;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SpaceShooter.Scene.MainMenu
 {
@@ -11,8 +12,7 @@ namespace SpaceShooter.Scene.MainMenu
     {
         public override string SceneName { get { return "MainMenu"; } }
 
-        //private LeaderBoardController _leaderBoard;
-
+        private LeaderBoardController _leaderBoardController;
         protected override IController[] GetSceneDependencies()
         {
             return new IController[]{
@@ -32,12 +32,8 @@ namespace SpaceShooter.Scene.MainMenu
 
         protected override IEnumerator InitSceneObject()
         {
-            Debug.Log(_view.name);
-            //_view.Init(ClickPlay);
-            //_leaderBoard.SetView(_view.LeaderBoard);
-            /*_view.Init(SceneName, BackToHome, Restart);
-            _gold.SetView(_view.Gold);
-            _tavern.SetView(_view.Tavern);*/
+            _view.Init(ClickPlay);
+            _leaderBoardController.SetView(_view.LeaderBoard);
             yield return null;
         }
 
