@@ -69,7 +69,7 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
 
         private IEnumerator MoveToPosition(Vector3 target, GameObject obj)
         {
-            var randomDis = 2;
+            var randomDis = 0;
             while(obj.transform.position != target )
             {
                 obj.transform.position = Vector3.MoveTowards(obj.transform.position, target, randomDis * Time.deltaTime);
