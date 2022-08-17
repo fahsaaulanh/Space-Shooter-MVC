@@ -2,6 +2,7 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 using SpaceShooter.Boot;
 using SpaceShooter.Scene.MainMenu.LeaderBoard;
+using SpaceShooter.SaveData;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,10 +14,11 @@ namespace SpaceShooter.Scene.MainMenu
         public override string SceneName { get { return "MainMenu"; } }
 
         private LeaderBoardController _leaderBoardController;
+
         protected override IController[] GetSceneDependencies()
         {
             return new IController[]{
-                new LeaderBoardController(),
+                new LeaderBoardController()
             };
         }
 
@@ -33,7 +35,7 @@ namespace SpaceShooter.Scene.MainMenu
         protected override IEnumerator InitSceneObject()
         {
             _view.Init(ClickPlay);
-            _leaderBoardController.SetView(_view.LeaderBoard);
+            _leaderBoardController.InitController(_view.LeaderBoard);
             yield return null;
         }
 
