@@ -17,16 +17,31 @@ namespace SpaceShooter.Scene.Gameplay.Player
         {
             _playerController.OnMoveLeft();
         }
+
+        private void OnShoot(PlayerClickMessage message)
+        {
+            _playerController.OnShoot();
+        }
+
+        private void OnScore(PlayerGotScore messsage)
+        {
+            _playerController.GotScore();
+        }
+
         protected override void Connect()
         {
             Subscribe<OnMoveRight>(OnMoveRight);
             Subscribe<OnMoveLeft>(OnMoveLeft);
+            Subscribe<PlayerClickMessage>(OnShoot);
+            Subscribe<PlayerGotScore>(OnScore);
         }
 
         protected override void Disconnect()
         {
             Unsubscribe<OnMoveRight>(OnMoveRight);
             Unsubscribe<OnMoveLeft>(OnMoveLeft);
+            Unsubscribe<PlayerClickMessage>(OnShoot);
+            Unsubscribe<PlayerGotScore>(OnScore);
         }
     }
 }
