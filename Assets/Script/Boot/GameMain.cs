@@ -4,18 +4,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using SpaceShooter.SaveData;
+using SpaceShooter.CurrentPlayer;
 
 namespace SpaceShooter.Boot
 {
     public class GameMain : BaseMain<GameMain>, IMain
     {
-        private SaveDataController _saveDataController;
-
         protected override IConnector[] GetConnectors()
         {
             return new IConnector[]
             {
-                new SaveConnector()
+                new SaveConnector(),
+                new CurrentPlayerConnector()
             };
         }
 
@@ -23,7 +23,8 @@ namespace SpaceShooter.Boot
         {
             return new IController[]
             {
-                new SaveDataController()
+                new SaveDataController(),
+                new CurrentPlayerController()
             };
         }
 
