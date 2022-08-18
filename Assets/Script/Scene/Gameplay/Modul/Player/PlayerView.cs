@@ -20,15 +20,7 @@ namespace SpaceShooter.Scene.Gameplay.Player
 
         private void Update()
         {
-            if(Input.GetKey(KeyCode.D))
-            {
-                MoveRight();
-            }
-            else if (Input.GetKey(KeyCode.A))
-            {
-                MoveLeft();
-            }
-
+            
         }
 
         public void MoveRight()

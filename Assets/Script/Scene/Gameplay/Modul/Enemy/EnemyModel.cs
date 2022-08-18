@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Agate.MVC.Base;
 
-public class EnemyModel : MonoBehaviour
+namespace SpaceShooter.Scene.Gameplay.Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public interface IEnemyModel : IBaseModel
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public class EnemyModel : BaseModel, IEnemyModel
     {
-        
+
     }
 }

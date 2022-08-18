@@ -59,6 +59,7 @@ namespace SpaceShooter.Scene.Gameplay.Bullet
             }
 
             _newOne.InitController(_bulletView);
+            bullets.Add(_newOne);
         }
     }
 }

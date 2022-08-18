@@ -6,7 +6,7 @@ namespace SpaceShooter.Scene.Gameplay.Bullet
 {
     public class BulletsPoolView : ObjectView<IBulletsPool>
     {
-        public int SizePool { get; private set; }
+        public int SizePool { get => size; }
         [SerializeField] private GameObject eBullet;
         [SerializeField] private GameObject pBullet;
         [SerializeField] private int size;
@@ -14,12 +14,12 @@ namespace SpaceShooter.Scene.Gameplay.Bullet
 
         public GameObject InstantiateEBullet()
         {
-            return Instantiate(eBullet);
+            return Instantiate(eBullet, transform);
         }
 
         public GameObject InstantiatePBullet()
         {
-            return Instantiate(pBullet);
+            return Instantiate(pBullet, transform);
         }
 
         protected override void InitRenderModel(IBulletsPool model)

@@ -5,6 +5,8 @@ using Agate.MVC.Core;
 using SpaceShooter.Boot;
 using SpaceShooter.Scene.Gameplay.Player;
 using SpaceShooter.Scene.Gameplay.SpawnEnemy;
+using SpaceShooter.Scene.Gameplay.InputManager;
+using SpaceShooter.Scene.Gameplay.Bullet;
 
 namespace SpaceShooter.Scene.Gameplay
 {
@@ -14,24 +16,34 @@ namespace SpaceShooter.Scene.Gameplay
         public override string SceneName => "Gameplay";
         private PlayerController _playerController;
         private EnemySpawnController _enemySpawnController;
+        private InputManagerController _inputManagerController;
+        private BulletsPoolController _poolController;
 
         protected override IConnector[] GetSceneConnectors()
         {
-            return null;
+            return new IConnector[]
+            {
+                new PlayerConnector(),
+                new BulletConnector()
+            };
         }
 
         protected override IController[] GetSceneDependencies()
         {
             return new IController[]{
                  new PlayerController(),
-                 new EnemySpawnController()
+                 new EnemySpawnController(),
+                 new InputManagerController(),
+                 new BulletsPoolController()
             };
         }
 
         protected override IEnumerator InitSceneObject()
         {
             _playerController.SetView(_view.player);
-            _enemySpawnController.SetView(_view.enemySpawn);
+            _inputManagerController.InitController(_view.inputView);
+            _enemySpawnController.Init(_view.enemySpawn);
+            _poolController.InitController(_view.PoolBulletView);
             yield return null;
         }
 

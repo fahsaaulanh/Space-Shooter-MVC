@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Base;
+using SpaceShooter.Scene.Gameplay.Message;
 
 namespace SpaceShooter.Scene.Gameplay.InputManager
 {
@@ -13,10 +14,25 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
             _view.InitView(OnPlayerClick);
         }
 
+        public override void SetView(InputManagerView view)
+        {
+            base.SetView(view);
+            view.SetCallbacks(OnClickMoveRight, OnClickMoveLeft);
+        }
+
+        private void OnClickMoveRight()
+        {
+            Publish<OnMoveRight>(new OnMoveRight());
+        }
+
+        private void OnClickMoveLeft()
+        {
+            Publish<OnMoveLeft>(new OnMoveLeft());
+        }
+
         private void OnPlayerClick()
         {
-            /*ShootMessage ms = new ShootMessage(,,'P');
-            Publish();*/
+            Publish(new PlayerClickMessage());
         }
     }
 }
