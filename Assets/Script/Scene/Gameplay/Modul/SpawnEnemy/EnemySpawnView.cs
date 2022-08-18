@@ -16,7 +16,8 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
 
         protected override void InitRenderModel(IEnemySpawnModel model)
         {
-            
+            SpawnEnemyMesh(4, 7, _startPosition, _offset);
+            MoveEnemy(4, 7, _startPosition, _offset);
         }
 
         protected override void UpdateRenderModel(IEnemySpawnModel model)
@@ -27,8 +28,7 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
         void Start()
         {
             
-            SpawnEnemyMesh(4, 4, _startPosition, _offset);
-            MoveEnemy(4, 4, _startPosition, _offset);
+          
 
         }
 
@@ -44,7 +44,7 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
                 for (int row = 0; row < rows; row++)
                 {
                     Debug.Log("tes col row " + row + col);
-                    var tempEnemy = (GameObject)Instantiate(_enemyTamplate, SpawnEnemyPosition.position, _enemyTamplate.transform.rotation);
+                    var tempEnemy = GameObject.Instantiate(_enemyTamplate,SpawnEnemyPosition.position, Quaternion.identity, SpawnEnemyPosition);
                     tempEnemy.name = tempEnemy.name + 'c' + col + 'r' + row;
                     tempEnemy.SetActive(true);
                     _enemyList.Add(tempEnemy);
@@ -69,13 +69,13 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
 
         private IEnumerator MoveToPosition(Vector3 target, GameObject obj)
         {
-            var randomDis = 2;
+            var randomDis = 5;
             while(obj.transform.position != target )
             {
                 obj.transform.position = Vector3.MoveTowards(obj.transform.position, target, randomDis * Time.deltaTime);
-
+                yield return 0;
             }
-            yield return 0;
+            
         }
     }
 }
