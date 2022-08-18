@@ -10,11 +10,11 @@ namespace SpaceShooter.Scene.Gameplay.Bullet
         {
             if (col.CompareTag("Enemy"))
             {
-                
+                col.gameObject.SetActive(false);
             }
             else if (col.CompareTag("PowerUp"))
             {
-
+                col.gameObject.SetActive(false);
             }
             else if (col.CompareTag("EndLine"))
             {
