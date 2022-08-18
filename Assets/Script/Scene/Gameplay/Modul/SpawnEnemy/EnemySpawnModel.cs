@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
@@ -10,6 +11,6 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
 
     public class EnemySpawnModel : BaseModel, IEnemySpawnModel
     {
-
+        
     }
 }

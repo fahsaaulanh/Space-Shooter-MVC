@@ -37,8 +37,8 @@ namespace SpaceShooter.Scene.Gameplay
         protected override IEnumerator InitSceneObject()
         {
             _playerController.SetView(_view.player);
-            _enemySpawnController.SetView(_view.enemySpawn);
             _inputManagerController.SetView(_view.inputView);
+            _enemySpawnController.Init(_view.enemySpawn);
             yield return null;
         }
 
