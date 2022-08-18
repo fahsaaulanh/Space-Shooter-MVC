@@ -1,39 +1,19 @@
-using Agate.MVC.Base;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace SpaceShooter.Scene.Gameplay.Enemy
+public class EnemyView : MonoBehaviour
 {
-    public class EnemyView : ObjectView<IEnemyModel>
+    // Start is called before the first frame update
+    void Start()
     {
-        [SerializeField] private GameObject tamplateEnemy;
-        protected override void InitRenderModel(IEnemyModel model)
-        {
-            
-        }
+        
+    }
 
-        protected override void UpdateRenderModel(IEnemyModel model)
-        {
-            
-        }
-
-        private void Start()
-        {
-            
-        }
-
-        private void Update()
-        {
-            
-        }
-
-        private void SpawnEnemy()
-        {
-
-        }
-
-        private void SpawnPosition()
-        {
-
-        }
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
+
