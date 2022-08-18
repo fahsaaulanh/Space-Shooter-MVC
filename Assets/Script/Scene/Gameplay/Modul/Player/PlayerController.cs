@@ -8,9 +8,14 @@ namespace SpaceShooter.Scene.Gameplay.Player
 {
     public class PlayerController : ObjectController<PlayerController, PlayerModel, IPlayerModel, PlayerView>
     { 
-        public void OnMovePlayer(OnMovePlayer message)
+        public void OnMoveRight()
         {
             _view.transform.localPosition += Vector3.right * _model.speed;
+        }
+
+        public void OnMoveLeft()
+        {
+            _view.transform.localPosition += Vector3.left * _model.speed;
         }
     }
 }

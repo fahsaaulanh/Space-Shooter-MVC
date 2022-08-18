@@ -1,5 +1,4 @@
 using Agate.MVC.Base;
-using Example.Scene.Idle.Gold;
 
 namespace SpaceShooter.Scene.Gameplay.Bullet
 {

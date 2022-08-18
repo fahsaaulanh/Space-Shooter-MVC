@@ -42,7 +42,7 @@ namespace SpaceShooter.Scene.Gameplay.Enemy
                 for (int i = 0; i < 10; i++)
                 {
                     transform.localPosition += Vector3.left * 0.005f;
-                    yield return new WaitForSeconds(1);
+                    yield return new WaitForSeconds(0.3f);
                 }
                 transform.localPosition += Vector3.down * 0.005f;
             }

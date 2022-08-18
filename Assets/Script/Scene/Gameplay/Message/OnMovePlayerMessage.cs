@@ -5,5 +5,7 @@ using Agate.MVC.Base;
 
 namespace SpaceShooter.Scene.Gameplay.Message
 {
-    public struct OnMovePlayer { }
+    public struct OnMoveRight { }
+
+    public struct OnMoveLeft { }
 }
