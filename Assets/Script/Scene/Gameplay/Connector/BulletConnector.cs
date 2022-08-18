@@ -1,4 +1,5 @@
 using Agate.MVC.Base;
+using UnityEngine;
 
 namespace SpaceShooter.Scene.Gameplay.Bullet
 {

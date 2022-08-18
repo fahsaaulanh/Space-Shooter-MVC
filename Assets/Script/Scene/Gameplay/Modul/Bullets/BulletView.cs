@@ -6,32 +6,33 @@ namespace SpaceShooter.Scene.Gameplay.Bullet
 {
     public class BulletView : BaseView
     {
-        private UnityAction<Collider2D> onCollide;
-        private Rigidbody2D rb;
+        private UnityAction<Collider2D> _onCollide;
+        private Rigidbody2D _rb;
 
 
         public void Launch(Vector2 pos, Vector2 spawnerPos)
         {
+            gameObject.SetActive(true);
             transform.position = new Vector3(pos.x, pos.y, transform.position.z);
-            rb.velocity = (pos - spawnerPos) * 5;
+            _rb.velocity = (pos - spawnerPos) * 5;
         }
 
-        public void InitObject(UnityAction<Collider2D> action)
+        public void InitObject(UnityAction<Collider2D> onCollide)
         {
-            onCollide = action;
-            rb = GetComponent<Rigidbody2D>();
+            _onCollide = onCollide;
+            _rb = GetComponent<Rigidbody2D>();
             DeAktive();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            onCollide(collision);
+            _onCollide(collision);
             DeAktive();
         }
 
         private void DeAktive()
         {
-            rb.velocity = Vector2.zero;
+            _rb.velocity = Vector2.zero;
             gameObject.SetActive(false);
         }
     }

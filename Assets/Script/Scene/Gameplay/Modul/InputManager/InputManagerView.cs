@@ -12,10 +12,10 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
 
         void Update()
         {
-            /*if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                _action();
-            }*/
+                _action?.Invoke();
+            }
             if (Input.GetKey(KeyCode.D))
             {
 
@@ -32,10 +32,11 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
             _OnMoveRight = onMoveRightPlayer;
             _OnMoveLeft = onMoveLeftPlayer;
         }
-        public void InitView(UnityAction action, UnityAction OnMovePlayer)
+
+        public void InitView(UnityAction action)//, UnityAction OnMovePlayer)
         {
             _action = action;
-            _OnMoveRight = OnMovePlayer;
+            //_OnMoveRight = OnMovePlayer;
         }
     }
 }

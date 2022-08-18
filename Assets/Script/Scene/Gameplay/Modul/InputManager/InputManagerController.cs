@@ -8,13 +8,10 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
 {
     public class InputManagerController : ObjectController<InputManagerController, InputManagerView>
     {
-
         public void InitController(InputManagerView view)
         {
             SetView(view);
-            _view.InitView(OnPlayerClick, OnClickMoveRight);
-
-
+            _view.InitView(OnPlayerClick);
         }
 
         public override void SetView(InputManagerView view)
@@ -25,7 +22,6 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
 
         private void OnClickMoveRight()
         {
-            
             Publish<OnMoveRight>(new OnMoveRight());
         }
 
@@ -36,8 +32,7 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
 
         private void OnPlayerClick()
         {
-            /*ShootMessage ms = new ShootMessage(,,'P');
-            Publish();*/
+            Publish(new PlayerClickMessage());
         }
     }
 }

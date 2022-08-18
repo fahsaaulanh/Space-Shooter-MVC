@@ -17,5 +17,17 @@ namespace SpaceShooter.Scene.Gameplay.Player
         {
             _view.transform.localPosition += Vector3.left * _model.speed;
         }
+
+        public void OnShoot()
+        {
+            Vector2 pos = _view.transform.position;
+            Publish(new ShootMessage(pos+Vector2.up, pos, 'P'));
+        }
+
+        public void GotScore()
+        {
+            _model.IncreaseScore(10);
+            Publish(new UpdateUiScoreMessage(_model.Score));
+        }
     }
 }
