@@ -6,15 +6,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using SpaceShooter.Scene.MainMenu.InputName;
 
 namespace SpaceShooter.Scene.MainMenu
 {
     public class MainMenuView : BaseSceneView
     {
         public LeaderBoardView LeaderBoard { get { return _leaderBoardView; } }
+        public InputNameView InputNameView { get { return _inputNameView; } }
+
+        [SerializeField] private LeaderBoardView _leaderBoardView;
+        [SerializeField] private InputNameView _inputNameView;
 
         [SerializeField] private Button _playButton;
-        [SerializeField] private LeaderBoardView _leaderBoardView;
 
         public void Init(UnityAction action)
         {

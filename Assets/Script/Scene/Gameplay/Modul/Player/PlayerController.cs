@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Base;
-using SpaceShooter.Scene.Gameplay.Message;
+using SpaceShooter.CurrentPlayer;
 
 namespace SpaceShooter.Scene.Gameplay.Player
 {
