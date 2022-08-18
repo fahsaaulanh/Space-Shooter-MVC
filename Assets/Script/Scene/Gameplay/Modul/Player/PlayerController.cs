@@ -23,5 +23,11 @@ namespace SpaceShooter.Scene.Gameplay.Player
             Vector2 pos = _view.transform.position;
             Publish(new ShootMessage(pos+Vector2.up, pos, 'P'));
         }
+
+        public void GotScore()
+        {
+            _model.IncreaseScore(10);
+            Publish(new UpdateUiScoreMessage(_model.Score));
+        }
     }
 }

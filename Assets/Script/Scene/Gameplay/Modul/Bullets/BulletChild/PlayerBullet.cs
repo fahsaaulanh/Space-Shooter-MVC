@@ -11,6 +11,7 @@ namespace SpaceShooter.Scene.Gameplay.Bullet
             if (col.CompareTag("Enemy"))
             {
                 col.gameObject.SetActive(false);
+                Publish(new PlayerGotScore());
             }
             else if (col.CompareTag("PowerUp"))
             {

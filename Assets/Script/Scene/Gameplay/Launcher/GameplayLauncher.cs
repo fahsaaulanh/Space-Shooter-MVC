@@ -7,6 +7,7 @@ using SpaceShooter.Scene.Gameplay.Player;
 using SpaceShooter.Scene.Gameplay.SpawnEnemy;
 using SpaceShooter.Scene.Gameplay.InputManager;
 using SpaceShooter.Scene.Gameplay.Bullet;
+using SpaceShooter.Scene.Gameplay.Score;
 
 namespace SpaceShooter.Scene.Gameplay
 {
@@ -18,13 +19,15 @@ namespace SpaceShooter.Scene.Gameplay
         private EnemySpawnController _enemySpawnController;
         private InputManagerController _inputManagerController;
         private BulletsPoolController _poolController;
+        private ScoreController _scoreController;
 
         protected override IConnector[] GetSceneConnectors()
         {
             return new IConnector[]
             {
                 new PlayerConnector(),
-                new BulletConnector()
+                new BulletConnector(),
+                new ScoreConnector()
             };
         }
 
@@ -34,7 +37,8 @@ namespace SpaceShooter.Scene.Gameplay
                  new PlayerController(),
                  new EnemySpawnController(),
                  new InputManagerController(),
-                 new BulletsPoolController()
+                 new BulletsPoolController(),
+                 new ScoreController()
             };
         }
 
@@ -44,6 +48,7 @@ namespace SpaceShooter.Scene.Gameplay
             _inputManagerController.InitController(_view.inputView);
             _enemySpawnController.Init(_view.enemySpawn);
             _poolController.InitController(_view.PoolBulletView);
+            _scoreController.SetView(_view.ScoreView);
             yield return null;
         }
 
