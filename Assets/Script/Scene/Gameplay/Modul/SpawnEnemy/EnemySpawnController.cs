@@ -11,7 +11,7 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
         {
             SetView(view);
             SpawnEnemyMesh(5, 20, _view._startPosition, _view._offset);
-            MoveEnemy(5, 20, _view._startPosition, _view._offset);
+            _view.StartCoroutine(moveing());
         }
 
         private void SpawnEnemyMesh(int columns, int rows, Vector2 pos, Vector2 offset)
@@ -27,6 +27,24 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
                 }
             }
         }
+
+        IEnumerator moveing()
+        {
+            
+
+            for (int i = 0; i < 3; i++)
+            {
+                MoveEnemy(5, 20, _view._startPosition, _view._offset);
+                yield return new WaitForSeconds(3);
+            }
+
+            foreach (GameObject enemy in _view._enemyList)
+            {
+                enemy.transform.position = _view._startPosition;
+            }
+
+        }
+
 
         public void MoveEnemy(int columns, int rows, Vector2 pos, Vector2 offset)
         {
