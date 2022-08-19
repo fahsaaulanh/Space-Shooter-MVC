@@ -5,21 +5,13 @@ using UnityEngine.Events;
 
 namespace SpaceShooter.Scene.MainMenu.LeaderBoard
 {
-    public class LeaderBoardView : ObjectView<ILeaderBoardModel>
+    public class LeaderBoardView : BaseView
     {
-        public void Init(UnityAction action)
-        {
-            
-        }
+        [SerializeField] private Text leaderBoardUI;
 
-        protected override void InitRenderModel(ILeaderBoardModel model)
+        public void UpdateLeaderBoard(string text)
         {
-            transform.GetChild(0).GetComponent<Text>().text = model.Data;
-        }
-
-        protected override void UpdateRenderModel(ILeaderBoardModel model)
-        {
-            
+            leaderBoardUI.text = text;
         }
     }
 }

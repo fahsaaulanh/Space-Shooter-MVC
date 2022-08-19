@@ -1,14 +1,37 @@
 ﻿using Agate.MVC.Base;
+using SpaceShooter.SaveData;
 using System;
+using UnityEngine;
 
 namespace SpaceShooter.Scene.MainMenu.LeaderBoard
 {
-    public class LeaderBoardController : ObjectController<LeaderBoardController, LeaderBoardModel, ILeaderBoardModel, LeaderBoardView>
+    public class LeaderBoardController : ObjectController<LeaderBoardController, LeaderBoardView>
     {
-        public LeaderBoardController()
+        public void InitController(LeaderBoardView view)
         {
-            SetView(_view);
-            _model.SetDara("Data Leader Board");
+            SetView(view);
+            Publish(new AskSaveDataMessage(ShowLeaderBoard));
         }
+
+        private void ShowLeaderBoard(DataPlayer[] data)
+        {
+            string send = "";
+            if (data.Length == 0)
+            {
+                send = "No Data";
+            }
+            else
+            {
+                send = "Name\tScore\n";
+                foreach (DataPlayer player in data)
+                {
+                    send = send + player._name + "\t" + player._score + "\n";
+                }
+            }
+
+            _view.UpdateLeaderBoard(send);
+        }
+
+    
     }
 }

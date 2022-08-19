@@ -3,6 +3,8 @@ using Agate.MVC.Core;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using SpaceShooter.SaveData;
+using SpaceShooter.CurrentPlayer;
 
 namespace SpaceShooter.Boot
 {
@@ -10,18 +12,34 @@ namespace SpaceShooter.Boot
     {
         protected override IConnector[] GetConnectors()
         {
-            return null;
+            return new IConnector[]
+            {
+                new SaveConnector(),
+                new CurrentPlayerConnector()
+            };
         }
 
         protected override IController[] GetDependencies()
         {
-            return null;
+            return new IController[]
+            {
+                new SaveDataController(),
+                new CurrentPlayerController()
+            };
         }
 
         protected override IEnumerator StartInit()
         {
-            Application.targetFrameRate = 60;
+            CreateEventSystem();
             yield return null;
+        }
+
+        private void CreateEventSystem()
+        {
+            GameObject obj = new GameObject("Event System");
+            obj.AddComponent<EventSystem>();
+            obj.AddComponent<StandaloneInputModule>();
+            GameObject.DontDestroyOnLoad(obj);
         }
     }
 }

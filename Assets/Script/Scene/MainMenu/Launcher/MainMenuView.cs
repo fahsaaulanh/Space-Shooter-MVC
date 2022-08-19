@@ -1,25 +1,29 @@
-using Agate.MVC.Base;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
+﻿using Agate.MVC.Base;
+using Agate.MVC.Core;
+using SpaceShooter.Boot;
 using SpaceShooter.Scene.MainMenu.LeaderBoard;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+using SpaceShooter.Scene.MainMenu.InputName;
 
 namespace SpaceShooter.Scene.MainMenu
 {
     public class MainMenuView : BaseSceneView
     {
-        public LeaderBoardView LeaderBoard {get {return _leaderBoard;}}
+        public LeaderBoardView LeaderBoard { get { return _leaderBoardView; } }
+        public InputNameView InputNameView { get { return _inputNameView; } }
 
-        [SerializeField]
-        private Button _play;
-        [SerializeField]
-        private LeaderBoardView _leaderBoard;
+        [SerializeField] private LeaderBoardView _leaderBoardView;
+        [SerializeField] private InputNameView _inputNameView;
 
-        public void Init(UnityAction onPlay)
+        [SerializeField] private Button _playButton;
+
+        public void Init(UnityAction action)
         {
-            _play.onClick.RemoveAllListeners();
-            _play.onClick.AddListener(onPlay);
+            _playButton.onClick.RemoveAllListeners();
+            _playButton.onClick.AddListener(action);
         }
-       
     }
 }
