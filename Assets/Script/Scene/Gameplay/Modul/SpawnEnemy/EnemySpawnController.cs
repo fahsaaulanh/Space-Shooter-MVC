@@ -10,8 +10,8 @@ namespace SpaceShooter.Scene.Gameplay.SpawnEnemy
         public void Init(EnemySpawnView view)
         {
             SetView(view);
-            SpawnEnemyMesh(5, 20, _view._startPosition, _view._offset);
-            _view.StartCoroutine(moveing());
+            SpawnEnemyMesh(5, 15, _view._startPosition, _view._offset);
+            MoveEnemy(5, 15, _view._startPosition, _view._offset);
         }
 
         private void SpawnEnemyMesh(int columns, int rows, Vector2 pos, Vector2 offset)

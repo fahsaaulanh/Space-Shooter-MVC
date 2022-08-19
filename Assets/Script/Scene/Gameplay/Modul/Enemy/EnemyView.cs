@@ -19,7 +19,7 @@ namespace SpaceShooter.Scene.Gameplay.Enemy
 
         void Start()
         {
-           
+            StartCoroutine(EnemyMovingLeft());
         }
 
         void Update()
@@ -41,10 +41,11 @@ namespace SpaceShooter.Scene.Gameplay.Enemy
 
                 for (int i = 0; i < 10; i++)
                 {
-                    transform.localPosition += Vector3.left * 0.005f;
-                    yield return new WaitForSeconds(0.3f);
+                    transform.localPosition += Vector3.left * 0.08f;
+                    yield return new WaitForSeconds(1f);
                 }
-                transform.localPosition += Vector3.down * 0.005f;
+                transform.localPosition += Vector3.down * 0.08f;
+                StartCoroutine(EnemyMovingRight());
             }
             
         }
@@ -56,10 +57,10 @@ namespace SpaceShooter.Scene.Gameplay.Enemy
 
                 for (int i = 0; i < 10; i++)
                 {
-                    transform.localPosition += Vector3.right * 0.005f;
+                    transform.localPosition += Vector3.right * 0.08f;
                     yield return new WaitForSeconds(1);
                 }
-                transform.localPosition += Vector3.down * 0.005f;
+                transform.localPosition += Vector3.down * 0.08f;
             }
 
         }
