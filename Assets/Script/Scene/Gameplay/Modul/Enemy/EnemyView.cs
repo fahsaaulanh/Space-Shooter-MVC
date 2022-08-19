@@ -19,19 +19,19 @@ namespace SpaceShooter.Scene.Gameplay.Enemy
 
         void Start()
         {
-            StartCoroutine(EnemyMovingLeft());
+            /*StartCoroutine(EnemyMovingLeft());*/
         }
 
         void Update()
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
+           /* if (Input.GetKey(KeyCode.LeftArrow))
             {
                 StartCoroutine(EnemyMovingLeft());
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
                 StartCoroutine(EnemyMovingRight());
-            }
+            }*/
         }
 
         IEnumerator EnemyMovingLeft ()
@@ -41,10 +41,10 @@ namespace SpaceShooter.Scene.Gameplay.Enemy
 
                 for (int i = 0; i < 10; i++)
                 {
-                    transform.localPosition += Vector3.left * 0.08f;
+                    transform.localPosition += Vector3.left * 0.1f;
                     yield return new WaitForSeconds(1f);
                 }
-                transform.localPosition += Vector3.down * 0.08f;
+                transform.localPosition += Vector3.down * 0.1f;
                 StartCoroutine(EnemyMovingRight());
             }
             

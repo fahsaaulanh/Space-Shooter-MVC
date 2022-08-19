@@ -8,14 +8,22 @@ namespace SpaceShooter.Scene.Gameplay.Player
 {
     public class PlayerController : ObjectController<PlayerController, PlayerModel, IPlayerModel, PlayerView>
     { 
-        public void OnMoveRight()
+        public void OnMoveRight(float s)
         {
-            _view.transform.localPosition += Vector3.right * _model.speed;
+           if(_view.transform.position.x <= _model.maxRangeX.x)
+            {
+                
+                _view.transform.localPosition += Vector3.right * s;
+            }
         }
 
-        public void OnMoveLeft()
+        public void OnMoveLeft(float s)
         {
-            _view.transform.localPosition += Vector3.left * _model.speed;
+            if(_view.transform.position.x >= - _model.maxRangeX.x)
+            {
+                Debug.Log("tes");
+                _view.transform.localPosition += Vector3.left * s;
+            }
         }
 
         public void OnShoot()

@@ -5,6 +5,7 @@ using Agate.MVC.Core;
 using SpaceShooter.Boot;
 using SpaceShooter.Scene.Gameplay.Player;
 using SpaceShooter.Scene.Gameplay.SpawnEnemy;
+using SpaceShooter.Scene.Gameplay.Enemy;
 using SpaceShooter.Scene.Gameplay.InputManager;
 using SpaceShooter.Scene.Gameplay.Bullet;
 using SpaceShooter.Scene.Gameplay.Score;
@@ -17,6 +18,7 @@ namespace SpaceShooter.Scene.Gameplay
         public override string SceneName => "Gameplay";
         private PlayerController _playerController;
         private EnemySpawnController _enemySpawnController;
+        private EnemyController _enemyController;
         private InputManagerController _inputManagerController;
         private BulletsPoolController _poolController;
         private ScoreController _scoreController;
@@ -38,7 +40,8 @@ namespace SpaceShooter.Scene.Gameplay
                  new EnemySpawnController(),
                  new InputManagerController(),
                  new BulletsPoolController(),
-                 new ScoreController()
+                 new ScoreController(),
+                 new EnemyController()
             };
         }
 
@@ -49,6 +52,7 @@ namespace SpaceShooter.Scene.Gameplay
             _enemySpawnController.Init(_view.enemySpawn);
             _poolController.InitController(_view.PoolBulletView);
             _scoreController.SetView(_view.ScoreView);
+            _enemyController.Init(_view.enemyView);
             yield return null;
         }
 

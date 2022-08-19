@@ -27,16 +27,16 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
             }
         }
 
-        public void SetCallbacks(UnityAction onMoveRightPlayer, UnityAction onMoveLeftPlayer)
+        public void SetCallbacks(UnityAction onMoveRightPlayer)
         {
             _OnMoveRight = onMoveRightPlayer;
-            _OnMoveLeft = onMoveLeftPlayer;
+            
         }
 
-        public void InitView(UnityAction action)//, UnityAction OnMovePlayer)
+        public void InitView(UnityAction action, UnityAction onMoveLeftPlayer)//, UnityAction OnMovePlayer)
         {
             _action = action;
-            //_OnMoveRight = OnMovePlayer;
+            _OnMoveLeft = onMoveLeftPlayer;
         }
     }
 }

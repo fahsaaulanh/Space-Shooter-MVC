@@ -10,12 +10,12 @@ namespace SpaceShooter.Scene.Gameplay.Player
 
         public void OnMoveRight(OnMoveRight message)
         {
-            _playerController.OnMoveRight();
+            _playerController.OnMoveRight(message.Speed);
         }
 
         public void OnMoveLeft(OnMoveLeft message)
         {
-            _playerController.OnMoveLeft();
+            _playerController.OnMoveLeft(message.Speed);
         }
 
         private void OnShoot(PlayerClickMessage message)

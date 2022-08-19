@@ -13,6 +13,8 @@ namespace SpaceShooter.Scene.Gameplay.Player
     public class PlayerModel : BaseModel, IPlayerModel
     {
         public int Score { get; private set; }
+        public int life { get; private set; }
+        public Vector2 maxRangeX { get; private set; } = new Vector2(7 , 0);
 
         public float speed = 0.005f;
 

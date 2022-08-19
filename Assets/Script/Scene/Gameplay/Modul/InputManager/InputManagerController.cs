@@ -11,23 +11,24 @@ namespace SpaceShooter.Scene.Gameplay.InputManager
         public void InitController(InputManagerView view)
         {
             SetView(view);
-            _view.InitView(OnPlayerClick);
+            _view.InitView(OnPlayerClick, OnClickMoveLeft);
         }
 
         public override void SetView(InputManagerView view)
         {
             base.SetView(view);
-            view.SetCallbacks(OnClickMoveRight, OnClickMoveLeft);
+            view.SetCallbacks(OnClickMoveRight);
         }
 
         private void OnClickMoveRight()
         {
-            Publish<OnMoveRight>(new OnMoveRight());
+            Publish<OnMoveRight>(new OnMoveRight(0.01f));
         }
 
         private void OnClickMoveLeft()
         {
-            Publish<OnMoveLeft>(new OnMoveLeft());
+            Debug.Log("tes");
+            Publish<OnMoveLeft>(new OnMoveLeft(0.01f));
         }
 
         private void OnPlayerClick()
